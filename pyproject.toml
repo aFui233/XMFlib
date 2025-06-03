@@ -16,6 +16,10 @@ dependencies = [
     "torch>=1.10"
 ]
 
+[project.urls]
+Homepage = "https://github.com/aFui233/XMFlib"
+Repository = "https://github.com/aFui233/XMFlib"
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["PairProbML*"]
