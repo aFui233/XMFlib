@@ -29,7 +29,7 @@ from PairProbML import PairProbPredictor
 predictor = PairProbPredictor()
 result = predictor.predict(
     facet=100,                  # 晶面类型，可选 '100' 或 '111'
-    interaction_energy=-0.2,    # 相互作用能 (eV)
+    interaction_energy=0.2,    # 相互作用能 (eV)
     temperature=400,            # 温度 (K)
     main_coverage=0.5           # 主组分覆盖度 (0~1)
 )
