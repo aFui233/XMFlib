@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "XMFlib"
-version = "0.1.1"
+version = "0.1.2"
 description = "A library for pair probability prediction using machine learning."
 authors = [
     { name="Minhui Li", email="23210220016@m.fudan.edu.cn" }
@@ -19,6 +19,12 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/aFui233/XMFlib"
 Repository = "https://github.com/aFui233/XMFlib"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"XMFlib.PairProbML" = ["models/*.pth"]
 
 [tool.setuptools.packages.find]
 where = ["."]
