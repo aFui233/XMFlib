@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: XMFlib
-Version: 0.1.3
+Version: 0.1.4
 Summary: A library for pair probability prediction using machine learning.
 Author-email: Minhui Li <23210220016@m.fudan.edu.cn>
 License: MIT License
