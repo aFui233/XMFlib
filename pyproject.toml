@@ -13,8 +13,8 @@ readme = "readme.md"
 license = { file = "LICENCE" }
 requires-python = ">=3.7"
 dependencies = [
-    "torch>=1.10",
-    "numpy>=1.20"
+    "torch>=2.6.0",
+    "numpy>=2.0.2"
 ]
 
 [project.urls]
