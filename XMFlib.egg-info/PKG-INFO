@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: XMFlib
-Version: 0.1.4
+Version: 0.1.5
 Summary: A library for pair probability prediction using machine learning.
 Author-email: Minhui Li <23210220016@m.fudan.edu.cn>
 License: MIT License
@@ -29,8 +29,8 @@ Project-URL: Repository, https://github.com/aFui233/XMFlib
 Requires-Python: >=3.7
 Description-Content-Type: text/markdown
 License-File: LICENCE
-Requires-Dist: torch>=1.10
-Requires-Dist: numpy>=1.20
+Requires-Dist: torch>=2.6.0
+Requires-Dist: numpy>=2.0.2
 Dynamic: license-file
 
 # XMFlib
