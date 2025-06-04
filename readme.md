@@ -24,7 +24,7 @@ pip install XMFlib
 ## 使用示例
 
 ```python
-from PairProbML import PairProbPredictor
+from XMFlib.PairProbML import PairProbPredictor
 
 predictor = PairProbPredictor()
 result = predictor.predict(
