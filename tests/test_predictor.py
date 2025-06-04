@@ -1,4 +1,4 @@
-from PairProbML import PairProbPredictor
+from XMFlib.PairProbML import PairProbPredictor
 
 # Instantiate the predictor
 predictor = PairProbPredictor()
