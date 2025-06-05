@@ -12,8 +12,14 @@ class MLP(nn.Module):
             nn.ReLU(),
             nn.Linear(36, 8),
             nn.ReLU(),
-            nn.Linear(8, num_outputs)
+            nn.Linear(8, num_outputs),
+            nn.Softmax(dim=1)
         )
 
     def forward(self, x):
         return self.net(x)
+    
+if __name__ == "__main__":
+    # Example usage
+    model = MLP(num_inputs=2, num_outputs=3)
+    print(model)
