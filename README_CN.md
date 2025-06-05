@@ -21,6 +21,16 @@ pip install XMFlib
 
 ---
 
+## 虚拟环境配置（建议）
+
+```bash
+conda create --name <env_name> python=3.9
+conda activate <env_name>
+pip install XMFlib
+```
+
+___
+
 ## 使用示例
 
 ```python
@@ -29,9 +39,9 @@ from XMFlib.PairProbML import PairProbPredictor
 predictor = PairProbPredictor()
 result = predictor.predict(
     facet=100,                  # 晶面类型，可选 '100' 或 '111'
-    interaction_energy=0.2,    # 相互作用能 (eV)
+    interaction_energy=0.2,     # 相互作用能 (eV)
     temperature=400,            # 温度 (K)
-    main_coverage=0.5           # 主组分覆盖度 (0~1)
+    main_coverage=0.5           # 主要物种覆盖度 (0~1)
 )
 print(result)
 # 输出示例: {'vacancy_pair': 0.12, 'species_pair': 0.34, 'species_vacancy_pair': 0.54}
