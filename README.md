@@ -39,10 +39,15 @@ from XMFlib.PairProbML import PairProbPredictor
 predictor = PairProbPredictor()
 result = predictor.predict(
     facet=100,                  # Facet type, options: '100' or '111'
-    interaction_energy=0.2,     # Interaction energy (eV)
+    interaction_energy=0.3,     # Interaction energy (eV)
     temperature=400,            # Temperature (K)
-    main_coverage=0.5           # Main species coverage (0~1)
+    main_coverage=0.7           # Main species coverage (0~1)
 )
-print(result)
-# Example output: {'vacancy_pair': 0.12, 'species_pair': 0.34, 'species_vacancy_pair': 0.54}
+print("Predicted probabilities:", result)
 ```
+Example output: Predicted probabilities: [0.002484329044818878, 0.38522598147392273, 0.5955939292907715]
+The list corresponds to:
+   [Pee, Paa, Pae]
+   Pee：probability of a vacancy-vacancy pair (empty-empty site)
+   Paa：probability of a specie-specie pair (specie-specie)
+   Pae：probability of a specie-vacancy pair (specie-empty site)

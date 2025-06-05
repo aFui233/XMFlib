@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: XMFlib
-Version: 0.1.5
+Version: 0.1.6
 Summary: A library for pair probability prediction using machine learning.
 Author-email: Minhui Li <23210220016@m.fudan.edu.cn>
 License: MIT License
@@ -35,20 +35,20 @@ Dynamic: license-file
 
 # XMFlib
 
-**XMFlib** 是一个基于机器学习的位点对概率预测库，适用于表面科学和材料模拟领域。它通过预训练的神经网络模型，能够根据输入的相互作用能、温度和覆盖度，快速预测不同类型的配对概率。
+**XMFlib** is a machine learning-based library for predicting pair-site probabilities, designed for surface science and materials simulation. Leveraging pre-trained neural network models, it can quickly predict various types of pair probabilities based on input interaction energy, temperature, and coverage.
 
 ---
 
-## 特性
+## Features
 
-- 支持多种表面类型（如 100, 111 晶面）
-- 内置多层感知机（MLP）模型，推理高效
-- 简单易用的 API，便于集成到科研和工程项目
-- 兼容 PyTorch，易于扩展和自定义模型
+- Supports multiple surface types (e.g., 100, 111 facets)
+- Built-in multi-layer perceptron (MLP) models for efficient inference
+- Simple and user-friendly API, easy to integrate into research and engineering projects
+- Compatible with PyTorch, making it easy to extend and customize models
 
 ---
 
-## 安装
+## Installation
 
 ```bash
 pip install XMFlib
@@ -56,19 +56,28 @@ pip install XMFlib
 
 ---
 
-## 使用示例
+## Virtual Environment Setup (Recommended)
+
+```bash
+conda create --name <env_name> python=3.9
+conda activate <env_name>
+pip install XMFlib
+```
+
+---
+
+## Usage Example
 
 ```python
 from XMFlib.PairProbML import PairProbPredictor
 
 predictor = PairProbPredictor()
 result = predictor.predict(
-    facet=100,                  # 晶面类型，可选 '100' 或 '111'
-    interaction_energy=0.2,    # 相互作用能 (eV)
-    temperature=400,            # 温度 (K)
-    main_coverage=0.5           # 主组分覆盖度 (0~1)
+    facet=100,                  # Facet type, options: '100' or '111'
+    interaction_energy=0.2,     # Interaction energy (eV)
+    temperature=400,            # Temperature (K)
+    main_coverage=0.5           # Main species coverage (0~1)
 )
 print(result)
-# 输出示例: {'vacancy_pair': 0.12, 'species_pair': 0.34, 'species_vacancy_pair': 0.54}
+# Example output: {'vacancy_pair': 0.12, 'species_pair': 0.34, 'species_vacancy_pair': 0.54}
 ```
-

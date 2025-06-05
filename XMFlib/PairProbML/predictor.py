@@ -39,4 +39,4 @@ class PairProbPredictor:
             y_pred = model(X_tensor).numpy()
 
         # Return predictions as a dictionary
-        return dict(zip(self.OUTPUT_NAMES, y_pred[0]))
+        return y_pred[0].tolist()

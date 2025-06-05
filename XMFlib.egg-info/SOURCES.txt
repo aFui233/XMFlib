@@ -1,6 +1,6 @@
 LICENCE
+README.md
 pyproject.toml
-readme.md
 XMFlib/__init__.py
 XMFlib.egg-info/PKG-INFO
 XMFlib.egg-info/SOURCES.txt

@@ -10,9 +10,9 @@ predictor = PairProbPredictor()
 # Run prediction with example values
 result = predictor.predict(
     facet=100,
-    interaction_energy=0.2,
+    interaction_energy=0.3,
     temperature=400,
-    main_coverage=0.5
+    main_coverage=0.7
 )
 
 print("Predicted probabilities:", result)
