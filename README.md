@@ -1,5 +1,7 @@
 # XMFlib
 
+[English](./README.md) | [中文](./README_CN.md)
+
 **XMFlib** is a machine learning-based library for predicting pair-site probabilities, designed for surface science and materials simulation. Leveraging pre-trained neural network models, it can quickly predict various types of pair probabilities based on input interaction energy, temperature, and coverage.
 
 ---
@@ -45,9 +47,14 @@ result = predictor.predict(
 )
 print("Predicted probabilities:", result)
 ```
-Example output: Predicted probabilities: [0.002484329044818878, 0.38522598147392273, 0.5955939292907715]
+
+**Example output:**
+```
+Predicted probabilities: [0.002484329044818878, 0.38522598147392273, 0.5955939292907715]
+```
+
 The list corresponds to:
-   [Pee, Paa, Pae]
-   Pee：probability of a vacancy-vacancy pair (empty-empty site)
-   Paa：probability of a specie-specie pair (specie-specie)
-   Pae：probability of a specie-vacancy pair (specie-empty site)
+
+- **Pee**: probability of a vacancy-vacancy pair (empty-empty site)
+- **Paa**: probability of a specie-specie pair (specie-specie)
+- **Pae**: probability of a specie-vacancy pair (specie-empty site)
