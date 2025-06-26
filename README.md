@@ -9,6 +9,7 @@
 ## Features
 
 - Supports multiple surface types (e.g., 100, 111 facets)
+- Supports first-nearest neighbor (1NN) and second-nearest neighbor (2NN) interaction predictions
 - Built-in multi-layer perceptron (MLP) models for efficient inference
 - Simple and user-friendly API, easy to integrate into research and engineering projects
 - Compatible with PyTorch, making it easy to extend and customize models
@@ -35,6 +36,8 @@ pip install XMFlib
 
 ## Usage Example
 
+Basic Model Prediction (1NN interactions only)
+
 ```python
 from XMFlib.PairProbML import PairProbPredictor
 
@@ -51,6 +54,27 @@ print("Predicted probabilities:", result)
 **Example output:**
 ```
 Predicted probabilities: [0.002484329044818878, 0.38522598147392273, 0.5955939292907715]
+```
+
+2NN Model Prediction (considering 1NN and 2NN interactions)
+
+```python
+from XMFlib.PairProbML import PairProbPredictor
+
+predictor = PairProbPredictor()
+result_2nn = predictor.predict_2nn(
+    facet=111,                     # Facet type, options: '100' or '111'
+    interaction_energy_1nn=0.16,   # 1NN interaction energy (eV)
+    interaction_energy_2nn=0.04,   # 2NN interaction energy (eV)
+    temperature=525,               # Temperature (K)
+    main_coverage=0.7              # Main species coverage (0~1)
+)
+print("Predicted 2NN probabilities:", result_2nn)
+```
+
+**Example output:**
+```
+Predicted 2NN probabilities: [0.012345678901234, 0.45678901234567, 0.53086530825309]
 ```
 
 The list corresponds to:

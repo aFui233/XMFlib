@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "XMFlib"
-version = "0.1.7"
+version = "0.1.8"
 description = "A library for pair probability prediction using machine learning."
 authors = [
     { name="Minhui Li", email="23210220016@m.fudan.edu.cn" }
@@ -13,7 +13,7 @@ readme = "README.md"
 license = { file = "LICENCE" }
 requires-python = ">=3.7"
 dependencies = [
-    "torch>=2.6.0",
+    "torch>=2.4.0",
     "numpy>=2.0.2"
 ]
 
