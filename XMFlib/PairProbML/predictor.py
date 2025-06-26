@@ -2,7 +2,7 @@ import os
 import torch
 from .io import load_model
 from .utils import eps_kbt
-from .models import MLP
+from .models import MLP, MLP_2nn
 
 class PairProbPredictor:
     SUPPORTED_FACETS = ['100', '111']
@@ -27,12 +27,40 @@ class PairProbPredictor:
         
         # Load the trained model
         model = load_model(model_path, model_class=MLP)
-        
+
         # Convert interaction energy to dimensionless form
         dimless_eps = eps_kbt(interaction_energy, temperature)
         
         # Prepare input features (feature order must match training)
         X = [[dimless_eps, main_coverage]]
+        X_tensor = torch.tensor(X, dtype=torch.float32)
+
+        with torch.no_grad():
+            y_pred = model(X_tensor).numpy()
+
+        # Return predictions as a dictionary
+        return y_pred[0].tolist()
+
+    def predict_2nn(self, facet, interaction_energy_1nn, interaction_energy_2nn,
+                    temperature, main_coverage, model_type='mlp', task='a2p'):
+        # Ensure facet is string
+        facet = str(facet)
+        if facet not in self.SUPPORTED_FACETS:
+            raise ValueError(f"Facet '{facet}' not supported. Supported: {self.SUPPORTED_FACETS}")
+
+        # Build the model file name and path
+        model_file = f'{model_type}_{task}_{facet}_2nn.pth'
+        model_path = os.path.join(self.model_dir, model_file)
+
+        # Load the trained model
+        model = load_model(model_path, model_class=MLP_2nn)
+
+        # Convert interaction energies to dimensionless form
+        dimless_eps_1nn = eps_kbt(interaction_energy_1nn, temperature)
+        dimless_eps_2nn = eps_kbt(interaction_energy_2nn, temperature)
+
+        # Prepare input features (feature order must match training)
+        X = [[dimless_eps_1nn, dimless_eps_2nn, main_coverage]]
         X_tensor = torch.tensor(X, dtype=torch.float32)
 
         with torch.no_grad():

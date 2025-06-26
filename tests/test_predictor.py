@@ -16,3 +16,14 @@ result = predictor.predict(
 )
 
 print("Predicted probabilities:", result)
+
+# Run prediction for 2NN with example values
+result_2nn = predictor.predict_2nn(
+    facet=111,
+    interaction_energy_1nn=0.16,
+    interaction_energy_2nn=0.04,
+    temperature=525,
+    main_coverage=0.7
+)
+
+print("Predicted 2NN probabilities:", result_2nn)
