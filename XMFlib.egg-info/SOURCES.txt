@@ -17,5 +17,9 @@ XMFlib/PairProbML/dataset/100_pee_cleaned.npy
 XMFlib/PairProbML/dataset/111_paa_cleaned.npy
 XMFlib/PairProbML/dataset/111_pee_cleaned.npy
 XMFlib/PairProbML/models/mlp_a2p_100_2nn.pth
+XMFlib/PairProbML/models/mlp_a2p_100_paa_lr0.001_hl16-32-64-128-128-64-32-16.pt
+XMFlib/PairProbML/models/mlp_a2p_100_pee_lr0.001_hl128-64-32.pt
 XMFlib/PairProbML/models/mlp_a2p_111_2nn.pth
+XMFlib/PairProbML/models/mlp_a2p_111_paa_lr0.001_hl16-32-64-128-128-64-32-16.pt
+XMFlib/PairProbML/models/mlp_a2p_111_pee_lr0.0005_hl128-64-32.pt
 tests/test_predictor.py
