@@ -12,6 +12,10 @@ XMFlib/PairProbML/io.py
 XMFlib/PairProbML/models.py
 XMFlib/PairProbML/predictor.py
 XMFlib/PairProbML/utils.py
+XMFlib/PairProbML/dataset/100_paa_cleaned.npy
+XMFlib/PairProbML/dataset/100_pee_cleaned.npy
+XMFlib/PairProbML/dataset/111_paa_cleaned.npy
+XMFlib/PairProbML/dataset/111_pee_cleaned.npy
 XMFlib/PairProbML/models/mlp_a2p_100_2nn.pth
 XMFlib/PairProbML/models/mlp_a2p_111_2nn.pth
 tests/test_predictor.py
