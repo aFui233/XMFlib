@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: XMFlib
-Version: 0.2.0
+Version: 0.3.0
 Summary: A library for pair probability prediction using machine learning.
 Author-email: Minhui Li <23210220016@m.fudan.edu.cn>
 License: MIT License
@@ -88,7 +88,7 @@ print("Predicted probabilities:", result)
 
 **Example output:**
 ```
-Predicted probabilities: [0.002484329044818878, 0.38522598147392273, 0.5955939292907715]
+Predicted probabilities: [1.9832839222709777e-05, 0.38549050273994284, 0.6144896644208344]
 ```
 
 2NN Model Prediction (considering 1NN and 2NN interactions)

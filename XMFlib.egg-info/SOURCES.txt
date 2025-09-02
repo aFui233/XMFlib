@@ -12,8 +12,6 @@ XMFlib/PairProbML/io.py
 XMFlib/PairProbML/models.py
 XMFlib/PairProbML/predictor.py
 XMFlib/PairProbML/utils.py
-XMFlib/PairProbML/models/mlp_a2p_100.pth
 XMFlib/PairProbML/models/mlp_a2p_100_2nn.pth
-XMFlib/PairProbML/models/mlp_a2p_111.pth
 XMFlib/PairProbML/models/mlp_a2p_111_2nn.pth
 tests/test_predictor.py
