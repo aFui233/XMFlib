@@ -1,7 +1,7 @@
 Metadata-Version: 2.4
 Name: XMFlib
-Version: 0.3.2
-Summary: A library for pair probability prediction using machine learning.
+Version: 0.4.0
+Summary: A library for pair-probability and coverage prediction using machine learning.
 Author-email: Minhui Li <23210220016@m.fudan.edu.cn>
 License: MIT License
         
@@ -37,7 +37,7 @@ Dynamic: license-file
 
 [English](./README.md) | [中文](./README_CN.md)
 
-**XMFlib** is a machine learning-based library for predicting pair-site probabilities, designed for surface science and materials simulation. Leveraging pre-trained neural network models, it can quickly predict various types of pair probabilities based on input interaction energy, temperature, and coverage.
+**XMFlib** is a machine learning-based library for surface science and materials simulation. It currently provides two modules: **PairProbML** for pair-site probability prediction and **CovML** for coverage prediction from interaction energy, adsorption energy, and temperature.
 
 ---
 
@@ -45,6 +45,7 @@ Dynamic: license-file
 
 - Supports multiple surface types (e.g., 100, 111 facets)
 - Supports first-nearest neighbor (1NN) and second-nearest neighbor (2NN) interaction predictions
+- Supports coverage prediction based on interaction energy and adsorption energy
 - Built-in multi-layer perceptron (MLP) models for efficient inference
 - Simple and user-friendly API, easy to integrate into research and engineering projects
 - Compatible with PyTorch, making it easy to extend and customize models
@@ -117,3 +118,25 @@ The list corresponds to:
 - **Pee**: probability of a vacancy-vacancy pair (empty-empty site)
 - **Paa**: probability of a specie-specie pair (specie-specie)
 - **Pae**: probability of a specie-vacancy pair (specie-empty site)
+
+Coverage Prediction (CovML)
+
+```python
+from XMFlib.CovML import CovPredictor
+
+predictor = CovPredictor()
+result = predictor.predict(
+    facet=100,                  # Facet type, options: '100' or '111'
+    interaction_energy=0.18,     # Interaction energy (eV)
+    adsorption_energy=-0.86,      # Adsorption energy (eV)
+    temperature=400             # Temperature (K)
+)
+print("Predicted coverage:", result)
+```
+
+**Example output:**
+```
+Predicted coverage: [0.6738327667075609, 0.32616723329243913]
+```
+
+Result note: the first value is the species coverage (A_Coverage), and the second value is the vacancy coverage (E_Coverage).

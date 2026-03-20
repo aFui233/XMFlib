@@ -7,6 +7,15 @@ XMFlib.egg-info/SOURCES.txt
 XMFlib.egg-info/dependency_links.txt
 XMFlib.egg-info/requires.txt
 XMFlib.egg-info/top_level.txt
+XMFlib/CovML/__init__.py
+XMFlib/CovML/io.py
+XMFlib/CovML/models.py
+XMFlib/CovML/predictor.py
+XMFlib/CovML/utils.py
+XMFlib/CovML/dataset/100_e2c_cleaned.npy
+XMFlib/CovML/dataset/111_e2c_cleaned.npy
+XMFlib/CovML/models/mlp_e2c_100_lr0.0005_hl512-256-128-64-32-16.pt
+XMFlib/CovML/models/mlp_e2c_111_lr0.0005_hl256-128-64-32.pt
 XMFlib/PairProbML/__init__.py
 XMFlib/PairProbML/io.py
 XMFlib/PairProbML/models.py
