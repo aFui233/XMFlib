@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "XMFlib"
-version = "0.4.0"
+version = "0.4.1"
 description = "A library for pair-probability and coverage prediction using machine learning."
 authors = [
     { name="Minhui Li", email="23210220016@m.fudan.edu.cn" }

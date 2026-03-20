@@ -2,18 +2,13 @@
 
 [English](./README.md) | [中文](./README_CN.md)
 
-**XMFlib** is a machine learning-based library for surface science and materials simulation. It currently provides two modules: **PairProbML** for pair-site probability prediction and **CovML** for coverage prediction from interaction energy, adsorption energy, and temperature.
+**XMFlib** is a lightweight ML inference library for surface science.
 
----
+It focuses on three core topics:
 
-## Features
-
-- Supports multiple surface types (e.g., 100, 111 facets)
-- Supports first-nearest neighbor (1NN) and second-nearest neighbor (2NN) interaction predictions
-- Supports coverage prediction based on interaction energy and adsorption energy
-- Built-in multi-layer perceptron (MLP) models for efficient inference
-- Simple and user-friendly API, easy to integrate into research and engineering projects
-- Compatible with PyTorch, making it easy to extend and customize models
+1. **PairProbML**: pair-site probability prediction
+2. **CovML**: coverage prediction
+3. **Quick integration**: simple API and pretrained models
 
 ---
 
@@ -35,73 +30,59 @@ pip install XMFlib
 
 ---
 
-## Usage Example
+## 1. PairProbML
 
-Basic Model Prediction (1NN interactions only)
+- Predict pair probabilities on `100` / `111` facets
+- Supports 1NN and 2NN inference
+- Output order: `[Pee, Paa, Pae]`
+
+Basic 1NN example:
 
 ```python
 from XMFlib.PairProbML import PairProbPredictor
 
 predictor = PairProbPredictor()
 result = predictor.predict(
-    facet=100,                  # Facet type, options: '100' or '111'
-    interaction_energy=0.3,     # Interaction energy (eV)
-    temperature=400,            # Temperature (K)
-    main_coverage=0.7           # Main species coverage (0~1)
+    facet=100,
+    interaction_energy=0.3,
+    temperature=400,
+    main_coverage=0.7
 )
 print("Predicted probabilities:", result)
 ```
 
-**Example output:**
-```
-Predicted probabilities: [1.9832839222709777e-05, 0.38549050273994284, 0.6144896644208344]
-```
-
-2NN Model Prediction (considering 1NN and 2NN interactions)
+2NN example:
 
 ```python
 from XMFlib.PairProbML import PairProbPredictor
 
 predictor = PairProbPredictor()
 result_2nn = predictor.predict_2nn(
-    facet=111,                     # Facet type, options: '100' or '111'
-    interaction_energy_1nn=0.16,   # 1NN interaction energy (eV)
-    interaction_energy_2nn=0.04,   # 2NN interaction energy (eV)
-    temperature=525,               # Temperature (K)
-    main_coverage=0.7              # Main species coverage (0~1)
+    facet=111,
+    interaction_energy_1nn=0.16,
+    interaction_energy_2nn=0.04,
+    temperature=525,
+    main_coverage=0.7
 )
 print("Predicted 2NN probabilities:", result_2nn)
 ```
 
-**Example output:**
-```
-Predicted 2NN probabilities: [0.012345678901234, 0.45678901234567, 0.53086530825309]
-```
+---
 
-The list corresponds to:
+## 2. CovML
 
-- **Pee**: probability of a vacancy-vacancy pair (empty-empty site)
-- **Paa**: probability of a specie-specie pair (specie-specie)
-- **Pae**: probability of a specie-vacancy pair (specie-empty site)
-
-Coverage Prediction (CovML)
+- Predict coverage from interaction energy, adsorption energy, and temperature
+- Output order: `[A_Coverage, E_Coverage]`
 
 ```python
 from XMFlib.CovML import CovPredictor
 
 predictor = CovPredictor()
 result = predictor.predict(
-    facet=100,                  # Facet type, options: '100' or '111'
-    interaction_energy=0.18,     # Interaction energy (eV)
-    adsorption_energy=-0.86,      # Adsorption energy (eV)
-    temperature=400             # Temperature (K)
+    facet=100,
+    interaction_energy=0.18,
+    adsorption_energy=-0.86,
+    temperature=400
 )
 print("Predicted coverage:", result)
 ```
-
-**Example output:**
-```
-Predicted coverage: [0.6738327667075609, 0.32616723329243913]
-```
-
-Result note: the first value is the species coverage (A_Coverage), and the second value is the vacancy coverage (E_Coverage).
