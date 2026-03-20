@@ -1,1 +1,1 @@
-from . import PairProbML
+from . import PairProbML, CovML
